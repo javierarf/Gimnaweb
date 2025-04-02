@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('imagenes/gimnasio.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+header {
+    background: rgba(0, 115, 230, 0.8);
+    color: white;
+    padding: 20px 0;
+    font-size: 1.5em;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#quienes-somos img {
+    width: 100%; /* Ajustar el ancho de la imagen al tamaño de la sección */
+    max-width: 500px; /* Limitar el tamaño máximo de la imagen */
+    height: auto; /* Mantener la proporción de la imagen */
+    display: block;
+    margin: 10px auto;
+}
+
+button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(0, 115, 230, 0.8);
+    color: white;
+}
