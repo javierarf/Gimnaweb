@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+      <a href="inscripcionClases.html">Inscripción</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Formulario de Registro</h1>
+    <form id="formRegistro">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="contrasena" placeholder="Contraseña" required />
+      <button type="submit">Registrar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Gimnasio Web. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('formRegistro').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        nombre: e.target.nombre.value,
+        email: e.target.email.value,
+        contrasena: e.target.contrasena.value
+      };
+      const res = await fetch('http://localhost:8000/api/registro/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      alert(json.mensaje);
+    });
+  </script>
+
+</body>
+</html>
