@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de Sesión</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+      <a href="inscripcionClases.html">Inscripción</a>
+      <a href="login.html">Iniciar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Iniciar Sesión</h1>
+    <form id="formLogin">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="contrasena" placeholder="Contraseña" required />
+      <button type="submit">Ingresar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Gimnasio Web. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById('formLogin').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        email: e.target.email.value,
+        contrasena: e.target.contrasena.value
+      };
+      const res = await fetch('http://localhost:8000/api/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      alert(json.mensaje);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clases Disponibles</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+      <a href="login.html">Iniciar Sesión</a>
+      <a href="inscripcionClases.html">Inscripción</a>
+      <a href="clases.html">Clases</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Clases Disponibles</h1>
+    <section id="listaClases">
+      <!-- Aquí se cargan las clases dinámicamente -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Gimnasio Web. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Simulación de clases disponibles (puedes reemplazar esto con fetch al backend)
+    const clases = [
+      { nombre: "Yoga", horario: "Lunes y Miércoles 8:00 AM", cupos: 10 },
+      { nombre: "Zumba", horario: "Martes y Jueves 6:00 PM", cupos: 15 },
+      { nombre: "Funcional", horario: "Viernes 7:00 AM", cupos: 12 },
+      { nombre: "Spinning", horario: "Sábado 9:00 AM", cupos: 8 }
+    ];
+
+    const lista = document.getElementById('listaClases');
+
+    clases.forEach(clase => {
+      const div = document.createElement('div');
+      div.className = 'clase';
+      div.innerHTML = `
+        <h3>${clase.nombre}</h3>
+        <p><strong>Horario:</strong> ${clase.horario}</p>
+        <p><strong>Cupos disponibles:</strong> ${clase.cupos}</p>
+        <button onclick="inscribirse('${clase.nombre}')">Inscribirme</button>
+      `;
+      lista.appendChild(div);
+    });
+
+    function inscribirse(nombreClase) {
+      alert('Has solicitado inscripción a la clase de ' + nombreClase);
+      // Aquí podrías redirigir a la página de inscripción o enviar la solicitud al backend
+    }
+  </script>
+
+</body>
+</html>
